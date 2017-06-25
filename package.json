@@ -6,13 +6,13 @@
   "main": "src/electron-starter.js",
   "productName": "NanoPiDemo",
   "dependencies": {
-    "electron": "^1.6.10",
     "wiringPi": "paduvi/node-wiringPi"
   },
   "devDependencies": {
     "antd": "^2.10.4",
     "d3-color": "^1.0.3",
     "d3-interpolate": "^1.1.5",
+    "electron": "^1.6.10",
     "foreman": "^2.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
