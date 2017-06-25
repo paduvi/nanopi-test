@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Electron's version.
-export npm_config_target=1.6.10
+export npm_config_target=1.7.3
 # The architecture of Electron, can be ia32 or x64.
 export npm_config_arch=arm
 export npm_config_target_arch=arm
@@ -11,5 +11,5 @@ export npm_config_disturl=https://atom.io/download/electron
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
-HOME=~/.electron-gyp npm install
+# Install all production dependencies, and store cache to ~/.electron-gyp.
+HOME=~/.electron-gyp npm install --only=production
