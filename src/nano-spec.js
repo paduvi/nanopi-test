@@ -102,6 +102,16 @@ const odd = [
         pin: 39,
         name: 'GND',
         wPi: null
+    }, {
+        key: '41',
+        pin: 41,
+        name: 'GND',
+        wPi: null
+    }, {
+        key: '43',
+        pin: 43,
+        name: 'UART_TXD0/GPIOA4',
+        wPi: 32
     }
 ];
 
@@ -220,10 +230,18 @@ const even = [
         pin: 40,
         name: 'UART3_RTS/SPI1_MOSI/GPIOA14',
         wPi: 29
+    }, {
+        key: '42',
+        pin: 42,
+        name: 'VCC',
+        wPi: null
+    }, {
+        key: '44',
+        pin: 44,
+        name: 'UART_RXD0/GPIOA5/PWM0',
+        wPi: 33
     }
 ];
-
-const pwmPort = 33;
 
 const value = {
     LOW: 0,
@@ -231,5 +249,5 @@ const value = {
 };
 
 module.exports = {
-    even, odd, pwmPort, value
+    even, odd, value
 }

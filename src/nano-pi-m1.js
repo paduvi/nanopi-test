@@ -21,7 +21,6 @@ module.exports = ipcMain => {
 
     ipcMain.on('pwmWrite', (event, pinPort, value) => {
         try {
-            console.log(value);
             wpi.pinMode(pinPort, wpi.mode.PWM_OUTPUT);
             wpi.pwmWrite(pinPort, value);
         } catch (err) {

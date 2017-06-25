@@ -62,12 +62,12 @@ const wrap = ComposedComponent => class extends PureComponent {
     }
 
     sendToMainProc = (pinPort, ledValue) => {
-        if (this.state.isPWM) {
-            ipcRenderer.send('pwmWrite', 33, ledValue);
-        } else {
-            const [pin] = pinPort % 2 ? odd.filter(e => e.pin === pinPort) : even.filter(e => e.pin === pinPort);
+        const [pin] = pinPort % 2 ? odd.filter(e => e.pin === pinPort) : even.filter(e => e.pin === pinPort);
 
-            const {wPi} = pin;
+        const {wPi} = pin;
+        if (this.state.isPWM) {
+            ipcRenderer.send('pwmWrite', wPi, ledValue);
+        } else {
             ipcRenderer.send('digitalWrite', wPi, ledValue);
         }
 
@@ -96,7 +96,7 @@ const wrap = ComposedComponent => class extends PureComponent {
 const Led = (props) => {
     const {led, port, handleNumberChange, changeTab} = props;
     const {isBlinking, blink, cancelBlink} = props;
-    const {changeLedValue, isPWM} = props;
+    const {changeLedValue} = props;
 
     const high = rgb(245, 166, 35);
     const low = rgb('#CCC');
@@ -107,12 +107,11 @@ const Led = (props) => {
             <FormItem
                 {...formItemLayout}
                 label="Header Pin Port"
-                help={"between 1 & 40"}
+                help={"between 1 & 44"}
             >
                 <InputNumber
                     min={1}
-                    max={40}
-                    disabled={isPWM}
+                    max={44}
                     value={port}
                     onChange={handleNumberChange}
                 />
