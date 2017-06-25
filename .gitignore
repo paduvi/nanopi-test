@@ -20,4 +20,3 @@ yarn.lock
 .idea
 
 dist/
-build/
