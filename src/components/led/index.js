@@ -62,13 +62,13 @@ const wrap = ComposedComponent => class extends PureComponent {
     }
 
     sendToMainProc = (pinPort, ledValue) => {
-        const [pin] = pinPort % 2 ? odd.filter(e => e.pin === pinPort) : even.filter(e => e.pin === pinPort);
-
-        const {gpio} = pin;
         if (this.state.isPWM) {
-            ipcRenderer.send('pwmWrite', gpio, ledValue);
+            ipcRenderer.send('pwmWrite', 33, ledValue);
         } else {
-            ipcRenderer.send('digitalWrite', gpio, Math.round(ledValue / 1024));
+            const [pin] = pinPort % 2 ? odd.filter(e => e.pin === pinPort) : even.filter(e => e.pin === pinPort);
+
+            const {wpi} = pin;
+            ipcRenderer.send('digitalWrite', wpi, Math.round(ledValue / 1024));
         }
 
     }
@@ -96,7 +96,7 @@ const wrap = ComposedComponent => class extends PureComponent {
 const Led = (props) => {
     const {led, port, handleNumberChange, changeTab} = props;
     const {isBlinking, blink, cancelBlink} = props;
-    const {changeLedValue} = props;
+    const {changeLedValue, isPWM} = props;
 
     const high = rgb(245, 166, 35);
     const low = rgb('#CCC');
@@ -112,6 +112,7 @@ const Led = (props) => {
                 <InputNumber
                     min={1}
                     max={40}
+                    disabled={isPWM}
                     value={port}
                     onChange={handleNumberChange}
                 />
