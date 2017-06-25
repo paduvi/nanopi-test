@@ -7,7 +7,7 @@
   "productName": "NanoPiDemo",
   "dependencies": {
     "electron": "^1.6.10",
-    "wiringPi": "git+https://github.com/paduvi/node-wiringPi.git"
+    "wiringPi": "paduvi/node-wiringPi"
   },
   "devDependencies": {
     "antd": "^2.10.4",
