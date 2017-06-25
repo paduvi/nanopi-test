@@ -10,8 +10,6 @@ const {value : STATUS} = require('./nano-spec');
 module.exports = ipcMain => {
     ipcMain.on('digitalWrite', (event, pinPort, value) => {
         try {
-            console.log(pinPort);
-            console.log(value);
             const {HIGH, LOW} = wpi.value;
             wpi.pinMode(pinPort, wpi.mode.OUTPUT);
             wpi.digitalWrite(pinPort, value == STATUS.HIGH ? HIGH : LOW);

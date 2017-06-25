@@ -67,8 +67,8 @@ const wrap = ComposedComponent => class extends PureComponent {
         } else {
             const [pin] = pinPort % 2 ? odd.filter(e => e.pin === pinPort) : even.filter(e => e.pin === pinPort);
 
-            const {wpi} = pin;
-            ipcRenderer.send('digitalWrite', wpi, Math.round(ledValue / 1024));
+            const {wPi} = pin;
+            ipcRenderer.send('digitalWrite', wPi, ledValue);
         }
 
     }
