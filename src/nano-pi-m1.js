@@ -2,12 +2,17 @@
  * Created by chotoxautinh on 6/4/17.
  */
 var wpi = require('wiringPi');
+
 wpi.setup();
+
+const STATUS = {
+    LOW: 0,
+    HIGH: 1024
+}
 
 module.exports = ipcMain => {
     ipcMain.on('digitalWrite', (event, pinPort, value) => {
         try {
-            const {STATUS} = require("./reducers/led");
             const {HIGH, LOW} = wpi.value;
             wpi.pinMode(pinPort, wpi.mode.OUTPUT);
             wpi.digitalWrite(pinPort, value == STATUS.HIGH ? HIGH : LOW);
