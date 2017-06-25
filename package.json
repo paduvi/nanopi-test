@@ -1,0 +1,36 @@
+{
+  "name": "nano-pi-demo",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "./",
+  "main": "src/electron-starter.js",
+  "productName": "NanoPiDemo",
+  "dependencies": {
+    "electron": "^1.6.10",
+    "wiringPi": "git+https://github.com/paduvi/node-wiringPi.git"
+  },
+  "devDependencies": {
+    "antd": "^2.10.4",
+    "d3-color": "^1.0.3",
+    "d3-interpolate": "^1.1.5",
+    "foreman": "^2.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "react-scripts": "1.0.7",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "nf start -p 3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-start": "node src/electron-wait-react",
+    "react-start": "react-scripts start"
+  }
+}
